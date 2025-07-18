@@ -2,6 +2,7 @@
 <p align="center">
     <a href="https://www.r2coding.com/" target="_blank">
         <img src="https://cdn.jsdelivr.net/gh/justacoder99/r2coding@master/img/r2coding_logo_index.15y992dieibg.png" width=""/>
+        <img src="https://i0.hdslb.com/bfs/new_dyn/44888baf13630d0978e9da73864c851c73294884.png@.webp" width=""/>
     </a>
 </p>
 
