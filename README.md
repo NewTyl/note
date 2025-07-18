@@ -17,11 +17,19 @@
 
 ---
 # **零信任登录**
-- 1.dwxianglebin/0p%0fJaJ0&-T、6jGnF_6D6!e&
-- 2.dwtangzhaowei/@y7R!7vgJE_7
+
+- dwxianglebin
+- 0p%0fJaJ0&-T
+- 6jGnF_6D6!e&
+---
+- dwtangzhaowei
+- @y7R!7vgJE_7
 ---
 # **paaS**
-- 1.client-admin/B8#KFHdw8FsRIJa
+
+- client-admin
+- B8#KFHdw8FsRIJa
+
 ---
 # **代付业务**
 ---
@@ -30,20 +38,27 @@
 手工代付：
 
 - 1.代付查询：注：主要修改字段为 cellNum（代付人号码可用“，”分割代付）
+
 curl -H "Trace:ew554545sadasddas454" -H "Content-Type:application/json" -H "X-Forwarded-For:192.168.158.158" -H "identCode:123456" --data '{"cid": "20150203152545999000456326314","en": "0","t": "","sn": "Coolpad 5950","cv": "2.0.0.0","st":"1","sv":"4.1.2","sp":"540x960","reqBody":{"cellNum": "15179382984","findType": "1","friendCellNum":""}}' "http://127.0.0.1:8080/biz-orange/SHS/billPayment/qryFriendList";
+
 - 2.手动代付：修改字段--cellNum 代付人 、friendCellNum 被代付人列表
+
 curl -H "Content-Type:application/json" --data '{"cellNum":"15179382984","friendCellNum":["19874110924"],"trace":"fh567542542433"}' "http://127.0.0.1:8080/biz-orange/SHS/billPayment/autoPlaceOrder";
-- 3.curl -H "Content-Type:application/json" --data '{"cellNum":"15179382984","friendCellNum":["19874110924",""],"trace":"fh567542542433"}' "http://127.0.0.1:8080/biz-orange/SHS/billPayment/autoPlaceOrder";
+
+curl -H "Content-Type:application/json" --data '{"cellNum":"15179382984","friendCellNum":["19874110924",""],"trace":"fh567542542433"}' "http://127.0.0.1:8080/biz-orange/SHS/billPayment/autoPlaceOrder";
 
 ---
 代付常见报错业务处理：
 
 - 1.问题：添加代付人时接口报320003处理
 - 查缓存(boss-cache)
+
 curl -H "Trace:ewddsdasdasdadsads" -H "Content-Type:application/json" -H "X-Forwarded-For:192.168.158.158" -H "identCode:123456" --data '{"key":"ID_BILL_PAYMENT_24_UNTREATED_15270157589"}' "http://127.0.0.1:8080/cache/get";
+
 - 查询结果：rspBody值是否为null,有值者清除后让用户重试即可！
 
 - 删除缓存命令
+  
 curl -H "Trace:ewddsdasdasdadsads" -H "Content-Type:application/json" -H "X-Forwarded-For:192.168.158.158" -H "identCode:123456" --data '{"key":"ID_BILL_PAYMENT_24_UNTREATED_15270157589"}' "http://127.0.0.1:8080/cache/delKey";
 
 注示例：
